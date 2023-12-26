@@ -6,6 +6,8 @@ services:
       container_name: faberlic-php-apache
       working_dir: /var/www/html
       tty: true
+      environment:
+        - PHP_IDE_CONFIG=serverName=partner
       volumes:
         - .:/var/www/html
         - ./docker/php-apache/apache2.conf:/etc/apache2/apache2.conf
@@ -13,7 +15,7 @@ services:
         - ./docker/php-apache/php.ini:/root/.phpbrew/php/php-5.3.29/etc/php.ini
         - ./docker/php-apache/oci8.ini:/usr/share/php5/common/oci8.ini
         - ./docker/php-apache/tnsnames.ora:/opt/oracle/instantclient_12_2/sdk/admin/tnsnames.ora
-        - ./docker/php:/usr/local/etc/php/custom.d
+        - ./docker/php/xdebug.ini:/root/.phpbrew/php/php-5.3.29/var/db/xdebug.ini
       ports:
         - "80:80"
         - "443:443"

@@ -13,6 +13,7 @@ services:
         - ./docker/php-apache/php.ini:/root/.phpbrew/php/php-5.3.29/etc/php.ini
         - ./docker/php-apache/oci8.ini:/usr/share/php5/common/oci8.ini
         - ./docker/php-apache/tnsnames.ora:/opt/oracle/instantclient_12_2/sdk/admin/tnsnames.ora
+        - ./docker/php:/usr/local/etc/php/custom.d
       ports:
         - "80:80"
         - "443:443"

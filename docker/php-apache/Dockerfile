@@ -92,9 +92,12 @@ RUN echo 'instantclient,/opt/oracle/instantclient_12_2' | pecl install -f oci8-2
 
 RUN source ~/.phpbrew/bashrc \
     && phpbrew use 5.3.29 \
+    && phpbrew ext install xdebug 2.2.7 \
     && phpbrew ext enable oci8 \
     && phpbrew ext enable memcache \
     && phpbrew ext enable timezonedb
+
+#RUN phpbrew ext install --pecl xdebug 2.2.7
 
 RUN a2dismod mpm_event && a2enmod mpm_prefork && a2enmod ssl
 EXPOSE 80 443

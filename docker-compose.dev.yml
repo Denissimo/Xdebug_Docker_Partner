@@ -1,0 +1,20 @@
+services:
+
+    php-apache:
+      extends:
+        file: docker-compose.yml
+        service: php-apache
+      build:
+        args:
+          env_mode: dev
+      volumes:
+        - ./docker/php/xdebug.ini:/root/.phpbrew/php/php-5.3.29/var/db/xdebug.ini
+      environment:
+        - PHP_IDE_CONFIG=serverName=partner
+
+
+    memcached:
+      extends:
+        file: docker-compose.yml
+        service: memcached
+

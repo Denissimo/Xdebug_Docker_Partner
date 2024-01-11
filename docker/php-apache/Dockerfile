@@ -1,6 +1,8 @@
 FROM ubuntu:18.04
 WORKDIR "/var/www/html"
 
+ARG env_mode
+
 ENV TZ=Europe/Moscow
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
